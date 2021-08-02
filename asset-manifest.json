@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/react_seminar_result/static/css/main.33d167e6.chunk.css",
+    "main.js": "/react_seminar_result/static/js/main.0749015a.chunk.js",
+    "main.js.map": "/react_seminar_result/static/js/main.0749015a.chunk.js.map",
+    "runtime-main.js": "/react_seminar_result/static/js/runtime-main.f0b22439.js",
+    "runtime-main.js.map": "/react_seminar_result/static/js/runtime-main.f0b22439.js.map",
+    "static/js/2.452ff198.chunk.js": "/react_seminar_result/static/js/2.452ff198.chunk.js",
+    "static/js/2.452ff198.chunk.js.map": "/react_seminar_result/static/js/2.452ff198.chunk.js.map",
+    "index.html": "/react_seminar_result/index.html",
+    "static/css/main.33d167e6.chunk.css.map": "/react_seminar_result/static/css/main.33d167e6.chunk.css.map",
+    "static/js/2.452ff198.chunk.js.LICENSE.txt": "/react_seminar_result/static/js/2.452ff198.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f0b22439.js",
+    "static/js/2.452ff198.chunk.js",
+    "static/css/main.33d167e6.chunk.css",
+    "static/js/main.0749015a.chunk.js"
+  ]
+}
