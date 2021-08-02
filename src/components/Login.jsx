@@ -14,7 +14,7 @@ const Login = ({ onLogin }) => {
   };
 
   const onKeyPress = (e) => {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       handleLogin();
     }
   };
