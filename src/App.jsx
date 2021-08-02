@@ -5,7 +5,7 @@ import TodoListPage from "./pages/TodoListPage";
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <Route exact path="/" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
       <Route path="/todo" component={TodoListPage} />
