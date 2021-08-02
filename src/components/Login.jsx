@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Login.module.css";
 
-const Login = ({ onLogin }) => {
+const Login = ({ onLogin, errorMessage }) => {
   const username = useRef();
   const password = useRef();
 
@@ -41,6 +41,7 @@ const Login = ({ onLogin }) => {
         <button className={styles.button} onClick={handleLogin}>
           로그인
         </button>
+        <p>{errorMessage}</p>
       </div>
     </div>
   );

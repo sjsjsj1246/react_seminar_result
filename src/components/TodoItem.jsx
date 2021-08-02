@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { memo, useRef, useState } from "react";
 import styles from "./TodoItem.module.css";
 import { BsTrash, BsCheck, BsPencil } from "react-icons/bs";
 import { FiSave } from "react-icons/fi";
@@ -90,4 +90,4 @@ const TodoItem = ({ todo, deleteTodo, toggledTodo, editTodo }) => {
   );
 };
 
-export default TodoItem;
+export default memo(TodoItem);

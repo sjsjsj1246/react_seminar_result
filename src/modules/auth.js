@@ -12,17 +12,13 @@ const REGISTER = "auth/REGISTER";
 const REGISTER_SUCCESS = "auth/REGISTER_SUCCESS";
 const REGISTER_FAILURE = "auth/REGISTER_FAILURE";
 
-const SET_LOADING = "auth/SET_LOADING";
-
 export const login =
   ({ username, password }) =>
   async (dispatch) => {
     dispatch({ type: LOGIN });
-    dispatch({ type: SET_LOADING, payload: true });
     try {
       const response = await authAPI.login({ username, password });
       dispatch({ type: LOGIN_SUCCESS, payload: response.data });
-      dispatch({ type: SET_LOADING, payload: false });
     } catch (e) {
       dispatch({ type: LOGIN_FAILURE, payload: e });
     }
@@ -30,11 +26,9 @@ export const login =
 
 export const logout = () => async (dispatch) => {
   dispatch({ type: LOGOUT });
-  dispatch({ type: SET_LOADING, payload: true });
   try {
     const response = await authAPI.logout();
-    dispatch({ type: LOGOUT_SUCCESS, payload: response.data });
-    dispatch({ type: SET_LOADING, payload: false });
+    dispatch({ type: LOGOUT_SUCCESS, payload: "로그아웃 성공" });
   } catch (e) {
     dispatch({ type: LOGOUT_FAILURE, payload: e });
   }
@@ -44,18 +38,16 @@ export const register =
   ({ username, password }) =>
   async (dispatch) => {
     dispatch({ type: REGISTER });
-    dispatch({ type: SET_LOADING, payload: true });
     try {
       const response = await authAPI.register({ username, password });
       dispatch({ type: REGISTER_SUCCESS, payload: response.data });
-      dispatch({ type: SET_LOADING, payload: false });
     } catch (e) {
       dispatch({ type: REGISTER_FAILURE, payload: e });
     }
   };
 
 const initState = {
-  username: null,
+  auth: null,
   error: null,
   loading: null,
   success: null,
@@ -66,12 +58,17 @@ const auth = (state = initState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        username: action.payload,
+        auth: action.payload,
       };
     case LOGIN_FAILURE:
       return {
         ...state,
         error: action.payload,
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        auth: action.payload,
       };
     case LOGOUT_FAILURE:
       return {
@@ -81,17 +78,12 @@ const auth = (state = initState, action) => {
     case REGISTER_SUCCESS:
       return {
         ...state,
-        username: action.payload,
+        auth: action.payload,
       };
     case REGISTER_FAILURE:
       return {
         ...state,
         error: action.payload,
-      };
-    case SET_LOADING:
-      return {
-        ...state,
-        loading: action.payload,
       };
     default:
       return state;
